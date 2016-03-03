@@ -47,6 +47,7 @@ public class mainprogram {
 				writeToFile(writerFile, city + ", " + state + " " + zip,"write");
 				writeToFile(writerFile, email,"write");
 				writeToFile(writerFile, null,"close");
+				System.out.println("Elements have been written to the file. Goodbye.");
 			break;
 			
 			case "no":
@@ -62,7 +63,7 @@ public class mainprogram {
 	}
 	public static void createFile (String x) throws FileNotFoundException{
 		Formatter fileFormat = new Formatter(x + ".txt");
-		
+		System.out.println("File has been created");
 	}
 	public static void writeToFile (PrintWriter file, String toWrite,String command) throws FileNotFoundException{
 		switch (command){
