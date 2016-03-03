@@ -1,0 +1,4 @@
+This program will prompt the user to enter some basic contact info and then ask
+if the info is correct. Finally, it will write the contact info to a file that
+is named <userlastname>.txt. I had to create this program for my SkillsUSA
+competition
