@@ -1,11 +1,12 @@
 package com.main;
 
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Formatter;
 import java.util.Scanner;
 
 public class mainprogram {
-	public static void main(String[] args){
+	public static void main(String[] args) throws FileNotFoundException{
 		Scanner kbReader = new Scanner(System.in);
 		String firstName;
 		String lastName;
@@ -37,12 +38,15 @@ public class mainprogram {
 			switch(response){
 			case "yes":
 				incorrectInfo = false;
-				try {
-					createFile(lastName);
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
+				createFile(lastName);
+				String writeFile = lastName + ".txt";
+				PrintWriter writerFile = new PrintWriter(writeFile);
+				writeToFile(writerFile,firstName + " " + lastName,"write");
+				writeToFile(writerFile,address,"write");
+				writeToFile(writerFile, city + ", " + state + " " + zip,"write");
+				writeToFile(writerFile, email,"write");
+				writeToFile(writerFile, null,"close");
 			break;
 			
 			case "no":
@@ -58,5 +62,18 @@ public class mainprogram {
 	}
 	public static void createFile (String x) throws FileNotFoundException{
 		Formatter fileFormat = new Formatter(x + ".txt");
+		
 	}
+	public static void writeToFile (PrintWriter file, String toWrite,String command) throws FileNotFoundException{
+		switch (command){
+		case "write":
+		
+		file.println(toWrite);
+		break;
+		case "close":
+			file.close();
+			break;
+		}
+	}
+	
 }
